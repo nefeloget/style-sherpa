@@ -25,7 +25,7 @@ module.exports = function(input, options, cb) {
     // The second match is the inner group
     var foundHeadings = body.match('<h1.*>(.*)</h1>');
     var title = foundHeadings && foundHeadings[1] || 'Page ' + (i + 1);
-    var anchor = title.toLowerCase().replace(/[^\w]+/g, '-');
+    var anchor = title.toLowerCase().replace(/\ /g, '-');
 
     return { title: title, anchor: anchor, body: body }
   });
